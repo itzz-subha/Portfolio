@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Subhashini S - Computer Science student and aspiring software developer.">
+  <title>Subhashini S | Portfolio</title>
+  <style>
+    :root{
+      --bg:#f7f8fc;
+      --card:#ffffff;
+      --text:#18202f;
+      --muted:#687386;
+      --primary:#6c5ce7;
+      --primary-dark:#5545d4;
+      --line:#e8eaf1;
+      --soft:#f0eeff;
+      --shadow:0 14px 35px rgba(29,35,58,.08);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      background:var(--bg); color:var(--text); line-height:1.65;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav-inner{
+      height:70px;display:flex;align-items:center;justify-content:space-between;
+    }
+    .logo{font-size:1.35rem;font-weight:800;color:var(--primary)}
+    .nav-links{display:flex;gap:25px;font-size:.94rem;font-weight:600;color:#4f596b}
+    .nav-links a:hover{color:var(--primary)}
+    .hero{
+      min-height:calc(100vh - 70px);
+      display:grid;grid-template-columns:1.25fr .75fr;
+      align-items:center;gap:55px;padding:75px 0;
+    }
+    .eyebrow{
+      display:inline-block;background:var(--soft);color:var(--primary);
+      padding:7px 13px;border-radius:30px;font-weight:700;font-size:.82rem;
+      margin-bottom:18px;
+    }
+    h1{font-size:clamp(3rem,7vw,5.7rem);line-height:1.02;letter-spacing:-3px}
+    .hero h1 span{color:var(--primary)}
+    .hero p{max-width:680px;color:var(--muted);font-size:1.08rem;margin:25px 0}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{
+      display:inline-block;padding:12px 20px;border-radius:10px;font-weight:700;
+      border:1px solid var(--primary);transition:.2s;
+    }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-dark)}
+    .btn-outline{color:var(--primary)}
+    .btn-outline:hover{background:var(--soft)}
+    .hero-card{
+      background:linear-gradient(145deg,#171b2a,#29244d);
+      color:#fff;border-radius:28px;padding:34px;box-shadow:var(--shadow);
+      position:relative;overflow:hidden;
+    }
+    .hero-card:after{
+      content:"";position:absolute;width:190px;height:190px;border-radius:50%;
+      background:rgba(108,92,231,.35);right:-65px;top:-65px;
+    }
+    .initials{
+      width:82px;height:82px;border-radius:22px;background:#fff;color:var(--primary);
+      display:grid;place-items:center;font-size:1.8rem;font-weight:900;margin-bottom:25px;
+    }
+    .hero-card h2{font-size:1.7rem;margin-bottom:8px}
+    .hero-card p{color:#c8cad5;font-size:.95rem;margin:0}
+    .contact-mini{margin-top:25px;display:grid;gap:11px;font-size:.9rem}
+    section{padding:90px 0}
+    .section-title{margin-bottom:38px}
+    .section-title .small{color:var(--primary);font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:.75rem}
+    .section-title h2{font-size:2.3rem;letter-spacing:-1px;margin-top:5px}
+    .section-title p{color:var(--muted);max-width:680px;margin-top:8px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .card{
+      background:var(--card);border:1px solid var(--line);border-radius:18px;
+      padding:28px;box-shadow:var(--shadow);
+    }
+    .card h3{margin-bottom:12px}
+    .card p{color:var(--muted)}
+    .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .skill-group h3{font-size:1rem;margin-bottom:14px}
+    .tags{display:flex;flex-wrap:wrap;gap:9px}
+    .tag{
+      background:#f5f6fa;border:1px solid var(--line);padding:7px 11px;
+      border-radius:8px;font-size:.86rem;color:#495467;
+    }
+    .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+    .project{position:relative;overflow:hidden}
+    .project-number{color:var(--primary);font-size:.8rem;font-weight:800}
+    .project h3{font-size:1.35rem;margin:7px 0 10px}
+    .project-tools{color:var(--primary);font-size:.84rem;font-weight:700;margin-bottom:14px}
+    .project p{color:var(--muted)}
+    .timeline{display:grid;gap:18px}
+    .education{
+      display:grid;grid-template-columns:190px 1fr;gap:25px;
+      padding:22px 0;border-bottom:1px solid var(--line);
+    }
+    .education:last-child{border-bottom:0}
+    .year{color:var(--primary);font-weight:800}
+    .education h3{font-size:1.05rem}
+    .education p{color:var(--muted)}
+    .activities{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .activity-list{display:grid;gap:14px}
+    .activity{
+      padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px;
+    }
+    .certs{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+    .cert{
+      padding:18px;background:#fff;border:1px solid var(--line);border-radius:14px;
+      font-weight:650;
+    }
+    footer{
+      background:#171b2a;color:#cdd0da;padding:30px 0;text-align:center;
+    }
+    footer a{color:#fff}
+    @media(max-width:800px){
+      .nav-links{display:none}
+      .hero{grid-template-columns:1fr;padding:55px 0}
+      .about-grid,.projects,.activities,.skills-grid,.certs{grid-template-columns:1fr}
+      .education{grid-template-columns:1fr;gap:5px}
+      h1{letter-spacing:-2px}
+      section{padding:65px 0}
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">SUBHASHINI S</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero container" id="home">
+    <div>
+      <span class="eyebrow">ASPIRING COMPUTER SCIENCE PROFESSIONAL</span>
+      <h1>Hi, I'm <span>Subhashini.</span></h1>
+      <p>
+        Aspiring Computer Science student looking for an opportunity to apply
+        knowledge of software testing, automation, and problem-solving skills
+        to contribute to delivering high-quality and reliable software solutions,
+        while continuously learning and growing in a dynamic environment.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-outline" href="mailto:subhashini8044@gmail.com">Contact Me</a>
+      </div>
+    </div>
+
+    <aside class="hero-card">
+      <div class="initials">SS</div>
+      <h2>Subhashini S</h2>
+      <p>Master of Computer Applications — Currently Pursuing</p>
+      <div class="contact-mini">
+        <span>✉ subhashini8044@gmail.com</span>
+        <a href="https://www.linkedin.com/in/subhashini-sriraman" target="_blank">in LinkedIn Profile</a>
+      </div>
+    </aside>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <div class="small">01 — About</div>
+        <h2>Profile & Strengths</h2>
+      </div>
+      <div class="about-grid">
+        <div class="card">
+          <h3>Career Objective</h3>
+          <p>
+            Aspiring Computer Science student looking for an opportunity to apply
+            knowledge of software testing, automation, and problem-solving skills
+            to contribute to delivering high-quality and reliable software solutions,
+            while continuously learning and growing in a dynamic environment.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Key Strengths</h3>
+          <div class="tags">
+            <span class="tag">Problem Solving</span>
+            <span class="tag">Analytical Thinking</span>
+            <span class="tag">Quick Learner</span>
+            <span class="tag">Adaptable</span>
+            <span class="tag">Time Management</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-title">
+        <div class="small">02 — Skills</div>
+        <h2>Technical Competencies</h2>
+      </div>
+      <div class="skills-grid">
+        <div class="card skill-group">
+          <h3>Languages</h3>
+          <div class="tags">
+            <span class="tag">Core Java</span><span class="tag">C</span>
+            <span class="tag">Python</span><span class="tag">VB.Net</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h3>Web Technology</h3>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span>
+            <span class="tag">JavaScript</span><span class="tag">React</span>
+            <span class="tag">Svelte</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h3>Tools</h3>
+          <div class="tags">
+            <span class="tag">VS Code</span><span class="tag">IntelliJ IDEA</span>
+            <span class="tag">Git</span><span class="tag">GitHub</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h3>Database & Deployment</h3>
+          <div class="tags">
+            <span class="tag">MySQL</span><span class="tag">Firebase Firestore</span>
+            <span class="tag">Vercel</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h3>Core</h3>
+          <div class="tags">
+            <span class="tag">Data Structures & Algorithms</span>
+            <span class="tag">Object-Oriented Programming</span>
+            <span class="tag">Automation Testing</span>
+            <span class="tag">Selenium</span>
+          </div>
+        </div>
+        <div class="card skill-group">
+          <h3>Areas of Interest</h3>
+          <div class="tags">
+            <span class="tag">Web Development</span><span class="tag">Java Programming</span>
+            <span class="tag">Cloud Computing</span><span class="tag">Full Stack Development</span>
+            <span class="tag">Software Development</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-title">
+        <div class="small">03 — Projects</div>
+        <h2>Featured Work</h2>
+      </div>
+      <div class="projects">
+        <article class="card project">
+          <div class="project-number">PROJECT 01</div>
+          <h3>Smart Blood Donation and Emergency Matching System</h3>
+          <div class="project-tools">SvelteKit · Tailwind CSS · JavaScript · Firebase Firestore</div>
+          <p>
+            Developed a full-stack web application using SvelteKit, Firebase
+            Authentication, and Firestore to connect blood donors, recipients,
+            and hospital blood banks. The system supports emergency blood requests,
+            real-time blood inventory management, and role-based access for
+            efficient coordination during critical situations.
+          </p>
+        </article>
+
+        <article class="card project">
+          <div class="project-number">PROJECT 02</div>
+          <h3>Job Recommendation Engine Using Salesforce</h3>
+          <div class="project-tools">Salesforce · LWC · Apex · JavaScript · HTML · CSS · Experience Cloud</div>
+          <p>
+            Built a cloud-based job matching platform that recommends suitable
+            jobs based on candidate profiles, calculates match scores, and manages
+            job postings through Salesforce automation and Lightning Web Components.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="container">
+      <div class="section-title">
+        <div class="small">04 — Education</div>
+        <h2>Academic Journey</h2>
+      </div>
+      <div class="card timeline">
+        <div class="education">
+          <div class="year">Currently</div>
+          <div>
+            <h3>Master of Computer Applications</h3>
+            <p>SONA COLLEGE OF TECHNOLOGY (PG) · CGPA: 8.4</p>
+          </div>
+        </div>
+        <div class="education">
+          <div class="year">May 2025</div>
+          <div>
+            <h3>B.Sc. Computer Science</h3>
+            <p>SRI SARADA COLLEGE FOR WOMEN (AUTONOMOUS) · CGPA: 7.8 · Graduated</p>
+          </div>
+        </div>
+        <div class="education">
+          <div class="year">May 2022</div>
+          <div>
+            <h3>Higher Secondary Certificate (HSC)</h3>
+            <p>SRI SARADA MAT. HR. SEC. SCHOOL FOR GIRLS · 75%</p>
+          </div>
+        </div>
+        <div class="education">
+          <div class="year">May 2020</div>
+          <div>
+            <h3>Secondary School Leaving Certificate (SSLC)</h3>
+            <p>SRI SARADA MAT. HR. SEC. SCHOOL FOR GIRLS · 63%</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-title">
+        <div class="small">05 — Activities</div>
+        <h2>Beyond Academics</h2>
+      </div>
+      <div class="activities">
+        <div class="card">
+          <h3>Co-Curricular Activities</h3>
+          <div class="activity-list">
+            <div class="activity">Delivered a seminar on Excel's Power Query and AI Integration</div>
+            <div class="activity">SIH 2025 — Participated</div>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Extra-Curricular Activity</h3>
+          <div class="activity-list">
+            <div class="activity">Advanced Diploma Course in Gardening and Landscaping</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certifications">
+    <div class="container">
+      <div class="section-title">
+        <div class="small">06 — Certifications</div>
+        <h2>Certifications & Learning</h2>
+      </div>
+      <div class="certs">
+        <div class="cert">FSP — Data Processing and Visualisation · NASSCOM</div>
+        <div class="cert">DIGITAL-101 · NASSCOM</div>
+        <div class="cert">Cloud Computing · Infosys Springboard</div>
+        <div class="cert">NPTEL Programming in Java · Top 1% Gold</div>
+        <div class="cert">Building Modern Web Application using AI · Symphozen Labs</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="card" style="text-align:center;padding:45px 25px">
+        <div class="section-title" style="margin-bottom:20px">
+          <div class="small">07 — Contact</div>
+          <h2>Let's Connect</h2>
+          <p style="margin:8px auto 0">
+            Interested in connecting? Reach out through email or LinkedIn.
+          </p>
+        </div>
+        <div class="buttons" style="justify-content:center">
+          <a class="btn btn-primary" href="mailto:subhashini8044@gmail.com">Email Me</a>
+          <a class="btn btn-outline" href="https://www.linkedin.com/in/subhashini-sriraman" target="_blank">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Subhashini S · Portfolio</p>
+  </div>
+</footer>
+
+</body>
+</html>
